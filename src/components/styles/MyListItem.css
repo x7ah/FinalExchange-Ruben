@@ -1,0 +1,30 @@
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr;
+  align-items: center;
+  padding: 1em;
+  border: 1px solid #0004;
+  border-radius: 0.5em;
+  background-color: #d2e09d;
+}
+.ori,
+.des {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.ori {
+  align-items: start;
+}
+
+.des {
+  align-items: end;
+}
+
+small {
+  text-align: center;
+}
+

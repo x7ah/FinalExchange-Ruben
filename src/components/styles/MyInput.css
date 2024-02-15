@@ -1,0 +1,20 @@
+input, .input {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-wrap: nowrap;
+    width:  180px;
+    padding: .5em 1em;
+    border: 1px solid #d27c2c;
+    border-radius: .5em;
+    background-color: #fff;
+    font-style: normal;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    color: #0008;
+    font-size: small;
+    font-style: italic;
+}

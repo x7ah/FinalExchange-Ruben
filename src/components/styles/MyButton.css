@@ -1,0 +1,39 @@
+.btn {
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+  background: #d27c2c;
+  border: none;
+  color: #fff;
+  border-radius: 0.5em;
+  transition: all ease 0.2s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px #d27c2c88;
+  }
+  &:active {
+    scale: 0.95;
+  }
+}
+
+.deleteBtn {
+  background: none;
+  padding: 0;
+  border: none;
+  & i {
+    color: #0008;
+    transition: all ease 0.2s;
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 0 #000;
+    & i {
+      color: #000;
+    }
+  }
+  &:active {
+    scale: 1;
+    & i {
+      color: red;
+    }
+  }
+}

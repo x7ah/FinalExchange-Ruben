@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1em;
+}
+i {
+    font-size: 2em;
+    color: #d27c2c;
+}

@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useState } from "react";
+import "remixicon/fonts/remixicon.css";
+import "./App.css";
+import MyHeader from "./components/MyHeader";
+import MyExchangeForm from "./components/MyExchangeForm";
+import MyExchangeList from "./components/MyExchangeList";
+
+const initialExchanges = [
+  {
+    id: 1001,
+    codOrigen: "EUR",
+    codDest: "USD",
+    amount: 2,
+  },
+  {
+    id: 1002,
+    codOrigen: "USD",
+    codDest: "JPY",
+    amount: 2,
+  },
+];
 
 function App() {
+  const [exchanges, setExchanges] = useState(initialExchanges);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <MyHeader />
+      <MyExchangeForm />
+      <MyExchangeList/>
     </div>
   );
 }
-
 export default App;
