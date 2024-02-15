@@ -9,15 +9,15 @@ import MyExchangeList from "./components/MyExchangeList";
 const initialExchanges = [
   {
     id: 1001,
-    codOrigen: "EUR",
-    codDest: "USD",
-    amount: 2,
+    codOri: "EUR",
+    codDes: "USD",
+    amount: 20.9045,
   },
   {
     id: 1002,
-    codOrigen: "USD",
-    codDest: "JPY",
-    amount: 2,
+    codOri: "USD",
+    codDes: "JPY",
+    amount: 20.9045,
   },
 ];
 
@@ -29,7 +29,7 @@ function App() {
     <div>
       <MyHeader />
       <MyExchangeForm />
-      <MyExchangeList/>
+      <MyExchangeList exchanges={exchanges}/>
     </div>
   );
 }

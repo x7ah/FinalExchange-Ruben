@@ -28,7 +28,7 @@ export default function MyExchangeForm() {
       />
 
       <span>
-        <i class="ri-arrow-right-line"></i>
+      <i className="ri-arrow-right-line"></i>
       </span>
 
       <CurrencyComboBoxCustom

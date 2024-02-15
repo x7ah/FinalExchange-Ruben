@@ -1,31 +1,39 @@
 import React from "react";
 import "./styles/MyListItem.css";
+import currencies from "../currencies";
 
-export default function MyListItem() {
+export default function MyListItem({ exchange, onDeleteExchange }) {
+
+  const handleDelete = ()=>{
+    onDeleteExchange(exchange.id)
+  }
+
   return (
     <div className="item">
       <div className="ori">
         <img
-          src="./img/flags/us.png"
+          src={`./img/flags/${currencies[exchange.codOri].flag}`}
           style={{
             width: "40px",
           }}
         />
-        <small>US Dollar</small>
-        <small>20.03293232</small>
+        <small>{currencies[exchange.codOri].name}</small>
+        <small>{`${exchange.amount} ${exchange.codOri}`}</small>
       </div>
-      <button className="delete">
-        <i class="ri-delete-bin-line"></i>
+      <button className="deleteBtn" onClick={handleDelete}>
+        <i className="ri-delete-bin-line"></i>
       </button>
       <div className="des">
         <img
-          src="./img/flags/au.png"
+          src={`./img/flags/${currencies[exchange.codDes].flag}`}
           style={{
             width: "40px",
           }}
         />
-        <small>Australian Dollar</small>
-        <small>34.9899076</small>
+        <small>{currencies[exchange.codDes].name}</small>
+        <small>
+          {`${exchange.amount * currencies[exchange.codDes].exchangeRate} ${exchange.codDes}`}
+        </small>
       </div>
     </div>
   );
