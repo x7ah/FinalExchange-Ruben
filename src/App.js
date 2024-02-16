@@ -11,18 +11,26 @@ const initialExchanges = [
     id: 1001,
     codOri: "EUR",
     codDes: "USD",
-    amount: 20.9045,
+    amount: 20,
   },
   {
     id: 1002,
     codOri: "USD",
     codDes: "JPY",
-    amount: 20.9045,
+    amount: 20,
   },
 ];
 
 function App() {
   const [exchanges, setExchanges] = useState(initialExchanges);
+
+  const handleAddExchange = (newExchange) => {
+    setExchanges([...exchanges, newExchange]);
+  };
+
+  const handleOnDeleteExchange = (id) => {
+    setExchanges(exchanges.filter((e) => e.id !== id));
+  };
 
   return (
 
@@ -30,6 +38,11 @@ function App() {
       <MyHeader />
       <MyExchangeForm />
       <MyExchangeList exchanges={exchanges}/>
+      <MyExchangeForm onAddExchange={handleAddExchange} />
+      <MyExchangeList
+        exchanges={exchanges}
+        onDeleteExchange={handleOnDeleteExchange}
+      />
     </div>
   );
 }

@@ -1,14 +1,37 @@
 import React, { useState } from "react";
 import MyInput from "./MyInput";
-import MyButton from "./MyButton";
+import "./styles/MyButton.css";
 import "./styles/MyExchangeForm.css";
 import CurrencyComboBoxCustom from "./CurrencyComboBoxCustom";
 import currencies from "../currencies";
 
-export default function MyExchangeForm() {
+export default function MyExchangeForm({ onAddExchange }) {
   const [selectedOriginCurrency, setSelectedOriginCurrency] = useState(null);
   const [selectedDestinationCurrency, setSelectedDestinationCurrency] =
     useState(null);
+    const [selectedAmount, setSelectedAmount] = useState(0);
+
+  const handleAddExchange = () => {
+    if (
+      !selectedOriginCurrency ||
+      !selectedDestinationCurrency ||
+      !selectedAmount
+    ) {
+      alert("Fill All Fields");
+      return;
+    }
+    const newExchange = {
+      id: Date.now(),
+      codOri: selectedOriginCurrency,
+      codDes: selectedDestinationCurrency,
+      amount: selectedAmount,
+    };
+    onAddExchange(newExchange);
+
+    setSelectedOriginCurrency(null);
+    setSelectedDestinationCurrency(null);
+    setSelectedAmount(0);
+  };
 
   const handleSelectOriginCurrency = (currency) => {
     setSelectedOriginCurrency(currency);
@@ -20,7 +43,12 @@ export default function MyExchangeForm() {
 
   return (
     <form className="section">
-      <MyInput type="number" title="Select an Amount" label="Amount" />
+      <MyInput
+        type="number"
+        title="Select an Amount"
+        label="Amount"
+        onChange={(e) => setSelectedAmount(e.target.value)}
+      />
       <CurrencyComboBoxCustom
         currencies={currencies}
         onSelectCurrency={handleSelectOriginCurrency}
@@ -37,7 +65,15 @@ export default function MyExchangeForm() {
         label="Destination Currency:"
       />
 
-      <MyButton title="Add to List" />
+<button
+        className="btn"
+        onClick={(e) => {
+          e.preventDefault();
+          handleAddExchange();
+        }}
+      >
+        Add to List
+      </button>
     </form>
   );
 }
