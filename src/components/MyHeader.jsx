@@ -4,7 +4,8 @@ import "./styles/MyHeader.css";
 export default function () {
   return (
     <header className="section">
-     <h1><i className="ri-swap-box-fill"></i>Currency Exchanger</h1>
+      <img src="./img/ep_money.svg" />
+      <h1>Currency Exchanger</h1>
     </header>
   );
 }
