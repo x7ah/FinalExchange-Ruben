@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
@@ -33,11 +32,8 @@ function App() {
   };
 
   return (
-
     <div>
       <MyHeader />
-      <MyExchangeForm />
-      <MyExchangeList exchanges={exchanges}/>
       <MyExchangeForm onAddExchange={handleAddExchange} />
       <MyExchangeList
         exchanges={exchanges}

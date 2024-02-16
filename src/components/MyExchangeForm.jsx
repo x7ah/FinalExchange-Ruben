@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MyInput from "./MyInput";
-import "./styles/MyButton.css";
 import "./styles/MyExchangeForm.css";
+import "./styles/MyButton.css";
 import CurrencyComboBoxCustom from "./CurrencyComboBoxCustom";
 import currencies from "../currencies";
 
@@ -9,9 +9,10 @@ export default function MyExchangeForm({ onAddExchange }) {
   const [selectedOriginCurrency, setSelectedOriginCurrency] = useState(null);
   const [selectedDestinationCurrency, setSelectedDestinationCurrency] =
     useState(null);
-    const [selectedAmount, setSelectedAmount] = useState(0);
+  const [selectedAmount, setSelectedAmount] = useState(0);
 
   const handleAddExchange = () => {
+
     if (
       !selectedOriginCurrency ||
       !selectedDestinationCurrency ||
@@ -20,17 +21,15 @@ export default function MyExchangeForm({ onAddExchange }) {
       alert("Fill All Fields");
       return;
     }
+
     const newExchange = {
       id: Date.now(),
       codOri: selectedOriginCurrency,
       codDes: selectedDestinationCurrency,
       amount: selectedAmount,
     };
+    
     onAddExchange(newExchange);
-
-    setSelectedOriginCurrency(null);
-    setSelectedDestinationCurrency(null);
-    setSelectedAmount(0);
   };
 
   const handleSelectOriginCurrency = (currency) => {
@@ -56,7 +55,7 @@ export default function MyExchangeForm({ onAddExchange }) {
       />
 
       <span>
-      <i className="ri-arrow-right-line"></i>
+        <i className="ri-arrow-right-line"></i>
       </span>
 
       <CurrencyComboBoxCustom
@@ -64,8 +63,7 @@ export default function MyExchangeForm({ onAddExchange }) {
         onSelectCurrency={handleSelectDestinationCurrency}
         label="Destination Currency:"
       />
-
-<button
+      <button
         className="btn"
         onClick={(e) => {
           e.preventDefault();

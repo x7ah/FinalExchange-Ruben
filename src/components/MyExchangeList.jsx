@@ -2,10 +2,10 @@ import React from "react";
 import "./styles/MyExchangeList.css";
 import MyListItem from "./MyListItem";
 
-export default function MyExchangeList({exchanges, onDeleteExchange}) {
+export default function MyExchangeList({ exchanges, onDeleteExchange }) {
   return (
     <div className="section list">
-    {exchanges.map((exchange) => (
+      {exchanges.map((exchange) => (
         <MyListItem exchange={exchange} onDeleteExchange={onDeleteExchange}/>
       ))}
     </div>
